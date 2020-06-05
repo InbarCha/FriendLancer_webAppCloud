@@ -1,0 +1,23 @@
+<div class="form-container" *ngIf="auth.isLoggedIn() && auth.isUserAdmin()">
+  <form name="form" class="loginForm" (ngSubmit)="f.form.valid && createForum()" #f="ngForm" novalidate>
+    <div class="form-group">
+      <h2>New Forum</h2>
+    </div>
+    <div class="form-group">
+      <label>Forum Name</label>
+      <input class="form-control" type="text" name="forumName" [(ngModel)]="forum.forumName" required>
+    </div>
+    <br/>
+    <button class="btn login" type="submit">Submit</button>
+    <br/>
+    <button class="btn login" routerLink="/forums">Cancel</button>
+  </form>
+</div>
+<div *ngIf="!auth.isLoggedIn()">
+  <br/>
+  <div class="display-4" [ngStyle]="{color:'red', textAlign:'center'}"> Not Logged In! </div>
+</div>
+<div *ngIf="auth.isLoggedIn() && !auth.isUserAdmin()">
+  <br/>
+  <div class="display-4" [ngStyle]="{color:'red', textAlign:'center'}"> You are not an admin! </div>
+</div>

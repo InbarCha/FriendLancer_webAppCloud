@@ -1,0 +1,28 @@
+<div class="myTable rounded-lg"  [ngStyle]="{textAlign: 'center'}" *ngIf="auth.isLoggedIn()">
+  <button class="btn btn-primary" id="createForumBtn" routerLink="/forums/create" *ngIf="auth.isUserAdmin()"> New Forum </button>
+  <br/><br/>
+  <table class="table table-hover shadow-lg rounded-lg" id="myTableForums">
+    <thead class="thead-dark">
+    <tr>
+      <th class="width-sm">
+        Full Name
+      </th>
+      <th class="width-sm">
+        Forum Id
+      </th>
+      <th class="width-sm">
+        Number Of Posts
+      </th>
+      <th class="width-sm">
+        Actions
+      </th>
+    </tr>
+    </thead>
+    <tbody id="myTableForumsD">
+    </tbody>
+  </table>
+</div>
+<div *ngIf="!auth.isLoggedIn()">
+  <br/>
+  <div class="display-4" [ngStyle]="{color:'red', textAlign:'center'}"> Not Logged In! </div>
+</div>

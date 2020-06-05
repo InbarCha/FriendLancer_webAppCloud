@@ -1,0 +1,13 @@
+.myTable {
+  padding: 2vw;
+  margin-top: 2vw;
+  margin-bottom: 2vw;
+  margin-left: 15vw !important;
+  margin-right: 15vw !important;
+}
+
+#searchForm {
+  border: thin solid lightgrey !important;
+  margin-left: 40px;
+  padding: 20px;
+}

@@ -1,0 +1,22 @@
+.myTable {
+  padding: 2vw;
+  margin-top: 2vw;
+  margin-bottom: 2vw;
+  margin-left: 15vw !important;
+}
+
+#searchForm {
+  border: thin solid lightgrey !important;
+  margin-left: 40px;
+  padding: 20px;
+}
+
+#agmMap {
+  height: 700px !important;
+  width: 400px !important;
+}
+
+#mapDiv {
+  margin-top: 12vw;
+  margin-right: 0;
+}
