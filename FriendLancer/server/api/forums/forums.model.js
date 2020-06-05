@@ -7,6 +7,7 @@ const Schema = mongoose.Schema; // Mongoose model is a Schema
 const ForumsSchema = new Schema({
   forumName: String,
   forumId:String,
+  numTimesWatched:Number,
 });
 
 /**

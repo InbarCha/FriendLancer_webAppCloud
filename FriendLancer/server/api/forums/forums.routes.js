@@ -27,6 +27,14 @@ router.post('/', controller.createForum);
 router.get('/:id', controller.findForumById);
 
 /**
+ * path: /api/forums/incrementNumTimesWatched/:id
+ * method: POST
+ * function: editForumNumTimesWatched() in the forums.controller.js file
+ */
+router.post('/incNumTimesWatched', controller.incNumTimesWatched);
+
+
+/**
  * path: /api/forums/:id     ->   example: http://localhost:3000/api/forums/{forumId}
  * method: POST
  * function: editForum() in the forums.controller.js file

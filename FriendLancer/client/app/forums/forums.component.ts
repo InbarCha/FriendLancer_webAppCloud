@@ -66,6 +66,14 @@ export class ForumsComponent implements OnInit {
 
             console.log(JSON.stringify(activeForum));
             forumSer.setActiveForum(activeForum);
+            forumSer.incNumTimesWatched(forumId, forumName).subscribe(data=> {
+              if (data['message'] === true) {
+                console.log("incremented");
+              }
+              else {
+                console.log("err");
+              }
+            });
             router.navigate(['/posts']);
           });
           this.numOfRows += 1;

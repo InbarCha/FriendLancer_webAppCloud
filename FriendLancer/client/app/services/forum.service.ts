@@ -17,11 +17,19 @@ export class ForumService {
     return this.http.post('http://localhost:3000/api/forums', {
       forumName: forumName,
       forumId: this.generateId(),
+      numTimesWatched: 0,
     });
   }
 
   editForum(forumName:string, forumId:string) {
     return this.http.post('http://localhost:3000/api/forums/' + forumId, {
+      forumId: forumId,
+      forumName: forumName,
+    });
+  }
+
+  incNumTimesWatched(forumId:string, forumName: string) {
+    return this.http.post('http://localhost:3000/api/forums/incNumTimesWatched', {
       forumId: forumId,
       forumName: forumName
     });
@@ -31,7 +39,7 @@ export class ForumService {
     return this.http.get<Forum[]>('http://localhost:3000/api/forums');
   }
 
-  getFormById(forumId: string) {
+  getForumById(forumId: string) {
     return this.http.get<Forum>('http://localhost:3000/api/forums/' + forumId)
   }
 

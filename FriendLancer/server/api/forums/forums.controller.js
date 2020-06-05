@@ -66,6 +66,7 @@ function createForum(req, res) {
     }
     else {
       // Define the new forum, give the constructor the req.body containing all fields
+      console.log(req.body);
       let newForum = new Forum(req.body);
       // Now lets save the user
       return newForum.save().then(function (forum) { // then when the forum saves
@@ -73,6 +74,7 @@ function createForum(req, res) {
         res.json({
           forumName: forum.forumName,
           forumId: forum.forumId,
+          numTimesWatched: forum.numTimesWatched,
         }); // let's return the forum entry to the person
       }).catch(validationError(res)); // catch any errors
     }
@@ -84,7 +86,7 @@ function editForum(req, res) {
   var query = {'forumId': req.body.forumId};
   req.newData = {
     forumName: req.body.forumName,
-    forumId: req.body.forumId
+    forumId: req.body.forumId,
   };
 
   Forum.findOneAndUpdate(query, req.newData, {upsert: false}, function(err, forum) {
@@ -93,6 +95,16 @@ function editForum(req, res) {
   });
 }
 
+function incNumTimesWatched(req, res) {
+  console.log("incNumTimesWatched in controller");
+  console.log('req.params.id: ' + req.body.forumId);
+  // Find user by email
+  Forum.findOneAndUpdate({forumId: req.body.forumId, forumName: req.body.forumName}, { $inc: {'numTimesWatched': 0.5 } }, function(err, forum) {
+    if (err) return res.send({message: false});
+    return res.send({message: true});
+  }).catch(validationError(res));
+}
+
 
 // Any functions we create, we want to return these functions to the express app to use.
-module.exports = { listAllForums, findForumById, createForum, editForum};
+module.exports = { listAllForums, findForumById, createForum, editForum, incNumTimesWatched};

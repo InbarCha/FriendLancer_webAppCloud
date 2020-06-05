@@ -15,7 +15,7 @@ const all = {
     // Connection data - Atlas
     connection: {
       useMongoClient: true,
-      uri: 'mongodb://inbarcha:23951001@friendlancerwebapp-shard-00-00-ennoa.mongodb.net:27017,friendlancerwebapp-shard-00-01-ennoa.mongodb.net:27017,friendlancerwebapp-shard-00-02-ennoa.mongodb.net:27017/test?ssl=true&replicaSet=FriendLancerWebApp-shard-0&authSource=admin&retryWrites=true&w=majority'
+      uri: 'mongodb://cloudUser:23951001@friendlancermeancloud-shard-00-00-yhr6v.mongodb.net:27017,friendlancermeancloud-shard-00-01-yhr6v.mongodb.net:27017,friendlancermeancloud-shard-00-02-yhr6v.mongodb.net:27017/friendLancer?ssl=true&replicaSet=FriendLancerMEANCloud-shard-0&authSource=admin&retryWrites=true&w=majority'
     },
     // Mongo DB Options
     options: {
