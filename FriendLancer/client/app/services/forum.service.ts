@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 class Forum {
   forumName: string;
   forumId: string;
+  numTimesWatched: number;
 }
 
 @Injectable({

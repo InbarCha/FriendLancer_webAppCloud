@@ -101,7 +101,7 @@ function incNumTimesWatched(req, res) {
   // Find user by email
   Forum.findOneAndUpdate({forumId: req.body.forumId, forumName: req.body.forumName}, { $inc: {'numTimesWatched': 0.5 } }, function(err, forum) {
     if (err) return res.send({message: false});
-    return res.send({message: true});
+    return res.send({message: true, numTimesWatched: forum.numTimesWatched});
   }).catch(validationError(res));
 }
 

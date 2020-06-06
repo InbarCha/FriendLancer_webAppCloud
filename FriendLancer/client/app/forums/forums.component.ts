@@ -27,7 +27,7 @@ export class ForumsComponent implements OnInit {
         forums.forEach(forum => {
           console.log(data);
           var numOfPosts = this.getNumOfPosts(forum.forumId, data);
-          this.addRow(forum.forumName, forum.forumId, numOfPosts);
+          this.addRow(forum.forumName, forum.forumId, numOfPosts, forum.numTimesWatched);
           var currentRow = this.numOfRows;
           var router = this.router;
           var forumSer = this.forumSer;
@@ -39,10 +39,13 @@ export class ForumsComponent implements OnInit {
             console.log(forumId);
             var forumName = rows[currentRow].cells[0].innerText;
             console.log(forumName);
+            var forumNumTimesWatched = rows[currentRow].cells[3].innerText;
+            console.log(forumNumTimesWatched);
 
             var activeForum = {
               forumName: forumName,
-              forumId: forumId
+              forumId: forumId,
+              numTimesWatched: parseInt(forumNumTimesWatched)
             };
 
             console.log(JSON.stringify(activeForum));
@@ -58,10 +61,13 @@ export class ForumsComponent implements OnInit {
             console.log(forumId);
             var forumName = rows[currentRow].cells[0].innerText;
             console.log(forumName);
+            var forumNumTimesWatched = rows[currentRow].cells[3].innerText;
+            console.log(forumNumTimesWatched);
 
             var activeForum = {
               forumName: forumName,
-              forumId: forumId
+              forumId: forumId,
+              numTimesWatched: parseInt(forumNumTimesWatched)
             };
 
             console.log(JSON.stringify(activeForum));
@@ -69,6 +75,7 @@ export class ForumsComponent implements OnInit {
             forumSer.incNumTimesWatched(forumId, forumName).subscribe(data=> {
               if (data['message'] === true) {
                 console.log("incremented");
+                var numTimesWatched = data["numTimesWatched"];
               }
               else {
                 console.log("err");
@@ -92,7 +99,7 @@ export class ForumsComponent implements OnInit {
     return 0;
   }
 
-  addRow(forumsName, forumId, numberOfPosts) {
+  addRow(forumsName, forumId, numberOfPosts, numTimesWatched) {
     var table: HTMLTableElement = <HTMLTableElement> document.getElementById("myTableForums");
     var newRow = table.insertRow(this.numOfRows);
 
@@ -100,10 +107,12 @@ export class ForumsComponent implements OnInit {
     var newCell_1 = newRow.insertCell(1);
     var newCell_2 = newRow.insertCell(2);
     var newCell_3 = newRow.insertCell(3);
+    var newCell_4 = newRow.insertCell(4);
 
     newCell_0.innerText = forumsName;
     newCell_1.innerText = forumId;
     newCell_2.innerText = numberOfPosts;
+    newCell_3.innerText = numTimesWatched;
 
     var editBtnId = 'editBtn_' + this.numOfRows;
     var activateBtnId = 'activateBtn_' + this.numOfRows;
@@ -117,7 +126,7 @@ export class ForumsComponent implements OnInit {
       var newCell_innerHtml = "<button class='btn btn-primary' id=" + editBtnId + " disabled> Edit Forum </button> " +
         "<button class='btn btn-primary' id=" + activateBtnId + "> Go to Forum </button>";
     }
-    newCell_3.innerHTML = newCell_innerHtml;
+    newCell_4.innerHTML = newCell_innerHtml;
 
   }
 }
