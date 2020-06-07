@@ -2891,7 +2891,7 @@ class AuthService {
         });
     }
     register(email, pwd, fullName, city, profession) {
-        return this.http.post('http://localhost:3000/api/users', {
+        return this.http.post('/api/users', {
             email: email,
             password: pwd,
             fullName: fullName,
