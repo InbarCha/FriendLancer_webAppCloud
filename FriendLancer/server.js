@@ -26,12 +26,7 @@ mongoose.connection.on('error', (err) => {
  */
 const app = express();
 var myApp = require('http').createServer();
-myApp.listen(4000);
-
-var io = socket.listen(myApp);
-io.sockets.on('connection', function(client) {
-  client.emit('loggedOn', { helloMessage: 'Enjoy Our Site!'} )
-});
+// myApp.listen(4000);
 
 // body parser is quite detailed so read the following article to understand how it works.
 // Understanding how Body Parser works : https://medium.com/@adamzerner/how-bodyparser-works-247897a93b90
