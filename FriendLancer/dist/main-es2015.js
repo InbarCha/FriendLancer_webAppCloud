@@ -2885,7 +2885,7 @@ class AuthService {
         this.http = http;
     }
     login(email, pwd) {
-        return this.http.post('http://localhost:3000/api/users/login', {
+        return this.http.post('/api/users/login', {
             email: email,
             password: pwd
         });

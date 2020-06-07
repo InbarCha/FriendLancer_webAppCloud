@@ -5849,7 +5849,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(AuthService, [{
         key: "login",
         value: function login(email, pwd) {
-          return this.http.post('http://localhost:3000/api/users/login', {
+          return this.http.post('/api/users/login', {
             email: email,
             password: pwd
           });
