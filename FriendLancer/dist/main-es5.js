@@ -5868,7 +5868,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "deleteUser",
         value: function deleteUser(userEmail, password) {
-          this.http.post('http://localhost:3000/api/users/deleteUser', {
+          this.http.post('/api/users/deleteUser', {
             email: userEmail,
             password: password
           });
@@ -5923,7 +5923,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAllUsers",
         value: function getAllUsers() {
-          return this.http.get('http://localhost:3000/api/users');
+          return this.http.get('/api/users');
         }
       }, {
         key: "isUserAdmin",
@@ -6010,7 +6010,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(ForumService, [{
         key: "createForum",
         value: function createForum(forumName) {
-          return this.http.post('http://localhost:3000/api/forums', {
+          return this.http.post('/api/forums', {
             forumName: forumName,
             forumId: this.generateId(),
             numTimesWatched: 0
@@ -6019,7 +6019,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "editForum",
         value: function editForum(forumName, forumId) {
-          return this.http.post('http://localhost:3000/api/forums/' + forumId, {
+          return this.http.post('/api/forums/' + forumId, {
             forumId: forumId,
             forumName: forumName
           });
@@ -6027,7 +6027,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "incNumTimesWatched",
         value: function incNumTimesWatched(forumId, forumName) {
-          return this.http.post('http://localhost:3000/api/forums/incNumTimesWatched', {
+          return this.http.post('/api/forums/incNumTimesWatched', {
             forumId: forumId,
             forumName: forumName
           });
@@ -6035,12 +6035,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAllForums",
         value: function getAllForums() {
-          return this.http.get('http://localhost:3000/api/forums');
+          return this.http.get('/api/forums');
         }
       }, {
         key: "getForumById",
         value: function getForumById(forumId) {
-          return this.http.get('http://localhost:3000/api/forums/' + forumId);
+          return this.http.get('/api/forums/' + forumId);
         }
       }, {
         key: "generateId",
@@ -6142,7 +6142,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(MeetPlaceService, [{
         key: "createMeetPlace",
         value: function createMeetPlace(meetPlaceName, meetPlaceType, meetPlaceLocation) {
-          return this.http.post('http://localhost:3000/api/meetPlaces', {
+          return this.http.post('/api/meetPlaces', {
             meetPlaceName: meetPlaceName,
             meetPlaceType: meetPlaceType,
             meetPlaceLocation: meetPlaceLocation
@@ -6151,7 +6151,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "editMeetPlace",
         value: function editMeetPlace(meetPlaceName, meetPlaceType, meetPlaceLocation) {
-          return this.http.post('http://localhost:3000/api/meetPlaces/' + meetPlaceName, {
+          return this.http.post('/api/meetPlaces/' + meetPlaceName, {
             meetPlaceName: meetPlaceName,
             meetPlaceType: meetPlaceType,
             meetPlaceLocation: meetPlaceLocation
@@ -6160,12 +6160,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAllMeetPlaces",
         value: function getAllMeetPlaces() {
-          return this.http.get('http://localhost:3000/api/meetPlaces');
+          return this.http.get('/api/meetPlaces');
         }
       }, {
         key: "getMeetPlaceByName",
         value: function getMeetPlaceByName(meetPlaceName) {
-          return this.http.get('http://localhost:3000/api/meetPlaces/' + meetPlaceName);
+          return this.http.get('/api/meetPlaces/' + meetPlaceName);
         }
       }, {
         key: "setActiveMeetPlace",
@@ -6222,7 +6222,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             };
           }
 
-          return this.http.post('http://localhost:3000/api/meetPlaces/searchMeetPlace', query);
+          return this.http.post('/api/meetPlaces/searchMeetPlace', query);
         }
       }]);
 
@@ -6310,7 +6310,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(PostsService, [{
         key: "createPost",
         value: function createPost(postTitle, postSubject, forumId, forumName, postLocation, postParticipants) {
-          return this.http.post('http://localhost:3000/api/posts', {
+          return this.http.post('/api/posts', {
             postTitle: postTitle,
             postSubject: postSubject,
             postLocation: postLocation,
@@ -6332,7 +6332,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "editPost",
         value: function editPost(postTitle, postSubject, postId, forumId, forumName, postLocation, postParticipants) {
-          return this.http.post('http://localhost:3000/api/posts/' + postId, {
+          return this.http.post('/api/posts/' + postId, {
             postId: postId,
             postTitle: postTitle,
             postSubject: postSubject,
@@ -6345,19 +6345,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAllPostsByForumId",
         value: function getAllPostsByForumId(forumId) {
-          return this.http.post('http://localhost:3000/api/posts/forums', {
+          return this.http.post('/api/posts/forums', {
             forumId: forumId
           });
         }
       }, {
         key: "getAllPosts",
         value: function getAllPosts() {
-          return this.http.get('http://localhost:3000/api/posts');
+          return this.http.get('/api/posts');
         }
       }, {
         key: "getPostById",
         value: function getPostById(postId) {
-          return this.http.post('http://localhost:3000/api/posts/postId', {
+          return this.http.post('/api/posts/postId', {
             postId: postId
           });
         }
@@ -6385,24 +6385,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "deletePost",
         value: function deletePost(postId) {
-          return this.http.post('http://localhost:3000/api/posts/postDelete', {
+          return this.http.post('/api/posts/postDelete', {
             postId: postId
           });
         }
       }, {
         key: "groupByForumIdAndCount",
         value: function groupByForumIdAndCount() {
-          return this.http.get('http://localhost:3000/api/posts/postsGroupBy');
+          return this.http.get('/api/posts/postsGroupBy');
         }
       }, {
         key: "groupByForumNameAndCount",
         value: function groupByForumNameAndCount() {
-          return this.http.get('http://localhost:3000/api/posts/postsGroupByForumName');
+          return this.http.get('/api/posts/postsGroupByForumName');
         }
       }, {
         key: "groupByPostLocationAndCount",
         value: function groupByPostLocationAndCount() {
-          return this.http.get('http://localhost:3000/api/posts/postsGroupByPostLocation');
+          return this.http.get('/api/posts/postsGroupByPostLocation');
         }
       }, {
         key: "searchPost",
@@ -6451,7 +6451,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             };
           }
 
-          return this.http.post('http://localhost:3000/api/posts/postsSearch', query);
+          return this.http.post('/api/posts/postsSearch', query);
         }
       }]);
 

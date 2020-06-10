@@ -2900,7 +2900,7 @@ class AuthService {
         });
     }
     deleteUser(userEmail, password) {
-        this.http.post('http://localhost:3000/api/users/deleteUser', {
+        this.http.post('/api/users/deleteUser', {
             email: userEmail,
             password: password
         });
@@ -2945,7 +2945,7 @@ class AuthService {
         }
     }
     getAllUsers() {
-        return this.http.get('http://localhost:3000/api/users');
+        return this.http.get('/api/users');
     }
     isUserAdmin() {
         if (this.isLoggedIn())
@@ -2988,29 +2988,29 @@ class ForumService {
         this.http = http;
     }
     createForum(forumName) {
-        return this.http.post('http://localhost:3000/api/forums', {
+        return this.http.post('/api/forums', {
             forumName: forumName,
             forumId: this.generateId(),
             numTimesWatched: 0,
         });
     }
     editForum(forumName, forumId) {
-        return this.http.post('http://localhost:3000/api/forums/' + forumId, {
+        return this.http.post('/api/forums/' + forumId, {
             forumId: forumId,
             forumName: forumName,
         });
     }
     incNumTimesWatched(forumId, forumName) {
-        return this.http.post('http://localhost:3000/api/forums/incNumTimesWatched', {
+        return this.http.post('/api/forums/incNumTimesWatched', {
             forumId: forumId,
             forumName: forumName
         });
     }
     getAllForums() {
-        return this.http.get('http://localhost:3000/api/forums');
+        return this.http.get('/api/forums');
     }
     getForumById(forumId) {
-        return this.http.get('http://localhost:3000/api/forums/' + forumId);
+        return this.http.get('/api/forums/' + forumId);
     }
     generateId() {
         return '_' + Math.random().toString(36).substr(2, 9);
@@ -3059,24 +3059,24 @@ class MeetPlaceService {
         this.http = http;
     }
     createMeetPlace(meetPlaceName, meetPlaceType, meetPlaceLocation) {
-        return this.http.post('http://localhost:3000/api/meetPlaces', {
+        return this.http.post('/api/meetPlaces', {
             meetPlaceName: meetPlaceName,
             meetPlaceType: meetPlaceType,
             meetPlaceLocation: meetPlaceLocation,
         });
     }
     editMeetPlace(meetPlaceName, meetPlaceType, meetPlaceLocation) {
-        return this.http.post('http://localhost:3000/api/meetPlaces/' + meetPlaceName, {
+        return this.http.post('/api/meetPlaces/' + meetPlaceName, {
             meetPlaceName: meetPlaceName,
             meetPlaceType: meetPlaceType,
             meetPlaceLocation: meetPlaceLocation,
         });
     }
     getAllMeetPlaces() {
-        return this.http.get('http://localhost:3000/api/meetPlaces');
+        return this.http.get('/api/meetPlaces');
     }
     getMeetPlaceByName(meetPlaceName) {
-        return this.http.get('http://localhost:3000/api/meetPlaces/' + meetPlaceName);
+        return this.http.get('/api/meetPlaces/' + meetPlaceName);
     }
     setActiveMeetPlace(meetPlace) {
         localStorage.setItem('currentMeetPlace', JSON.stringify(meetPlace));
@@ -3129,7 +3129,7 @@ class MeetPlaceService {
                 meetPlaceName: meetPlaceName,
             };
         }
-        return this.http.post('http://localhost:3000/api/meetPlaces/searchMeetPlace', query);
+        return this.http.post('/api/meetPlaces/searchMeetPlace', query);
     }
 }
 MeetPlaceService.ɵfac = function MeetPlaceService_Factory(t) { return new (t || MeetPlaceService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"])); };
@@ -3170,7 +3170,7 @@ class PostsService {
         this.facebookPageId = "102130368083020";
     }
     createPost(postTitle, postSubject, forumId, forumName, postLocation, postParticipants) {
-        return this.http.post('http://localhost:3000/api/posts', {
+        return this.http.post('/api/posts', {
             postTitle: postTitle,
             postSubject: postSubject,
             postLocation: postLocation,
@@ -3192,7 +3192,7 @@ class PostsService {
         });
     }
     editPost(postTitle, postSubject, postId, forumId, forumName, postLocation, postParticipants) {
-        return this.http.post('http://localhost:3000/api/posts/' + postId, {
+        return this.http.post('/api/posts/' + postId, {
             postId: postId,
             postTitle: postTitle,
             postSubject: postSubject,
@@ -3203,15 +3203,15 @@ class PostsService {
         });
     }
     getAllPostsByForumId(forumId) {
-        return this.http.post('http://localhost:3000/api/posts/forums', {
+        return this.http.post('/api/posts/forums', {
             forumId: forumId
         });
     }
     getAllPosts() {
-        return this.http.get('http://localhost:3000/api/posts');
+        return this.http.get('/api/posts');
     }
     getPostById(postId) {
-        return this.http.post('http://localhost:3000/api/posts/postId', {
+        return this.http.post('/api/posts/postId', {
             postId: postId
         });
     }
@@ -3229,18 +3229,18 @@ class PostsService {
         return JSON.parse(localStorage['currentPost']);
     }
     deletePost(postId) {
-        return this.http.post('http://localhost:3000/api/posts/postDelete', {
+        return this.http.post('/api/posts/postDelete', {
             postId: postId
         });
     }
     groupByForumIdAndCount() {
-        return this.http.get('http://localhost:3000/api/posts/postsGroupBy');
+        return this.http.get('/api/posts/postsGroupBy');
     }
     groupByForumNameAndCount() {
-        return this.http.get('http://localhost:3000/api/posts/postsGroupByForumName');
+        return this.http.get('/api/posts/postsGroupByForumName');
     }
     groupByPostLocationAndCount() {
-        return this.http.get('http://localhost:3000/api/posts/postsGroupByPostLocation');
+        return this.http.get('/api/posts/postsGroupByPostLocation');
     }
     searchPost(postTitle, postId, postLocation, forumName) {
         var query = {};
@@ -3291,7 +3291,7 @@ class PostsService {
                 forumName: forumName
             };
         }
-        return this.http.post('http://localhost:3000/api/posts/postsSearch', query);
+        return this.http.post('/api/posts/postsSearch', query);
     }
 }
 PostsService.ɵfac = function PostsService_Factory(t) { return new (t || PostsService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"])); };
