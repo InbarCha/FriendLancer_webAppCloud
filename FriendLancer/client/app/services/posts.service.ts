@@ -28,7 +28,7 @@ export class PostsService {
   }
 
   createPost(postTitle: string, postSubject: string, forumId: string, forumName:string, postLocation: string, postParticipants:Array<string>) {
-    return this.http.post('http://localhost:3000/api/posts', {
+    return this.http.post('/api/posts', {
       postTitle: postTitle,
       postSubject: postSubject,
       postLocation: postLocation,
@@ -52,7 +52,7 @@ export class PostsService {
   }
 
   editPost(postTitle: string, postSubject: string, postId: string, forumId: string, forumName:string, postLocation: string, postParticipants:Array<string>) {
-    return this.http.post<Post>('http://localhost:3000/api/posts/' + postId, {
+    return this.http.post<Post>('/api/posts/' + postId, {
       postId: postId,
       postTitle: postTitle,
       postSubject: postSubject,
@@ -64,18 +64,18 @@ export class PostsService {
   }
 
   getAllPostsByForumId(forumId: string) {
-    return this.http.post<Post[]>('http://localhost:3000/api/posts/forums', {
+    return this.http.post<Post[]>('/api/posts/forums', {
       forumId: forumId
     });
   }
 
 
   getAllPosts() {
-    return this.http.get<Post[]>('http://localhost:3000/api/posts');
+    return this.http.get<Post[]>('/api/posts');
   }
 
   getPostById(postId: string) {
-      return this.http.post<Post>('http://localhost:3000/api/posts/postId', {
+      return this.http.post<Post>('/api/posts/postId', {
         postId: postId
       });
   }
@@ -98,21 +98,21 @@ export class PostsService {
   }
 
   deletePost(postId: string) {
-    return this.http.post('http://localhost:3000/api/posts/postDelete', {
+    return this.http.post('/api/posts/postDelete', {
       postId: postId
     });
   }
 
   groupByForumIdAndCount() {
-    return this.http.get<NumOfPosts[]>('http://localhost:3000/api/posts/postsGroupBy');
+    return this.http.get<NumOfPosts[]>('/api/posts/postsGroupBy');
   }
 
   groupByForumNameAndCount() {
-    return this.http.get<NumOfPosts[]>('http://localhost:3000/api/posts/postsGroupByForumName');
+    return this.http.get<NumOfPosts[]>('/api/posts/postsGroupByForumName');
   }
 
   groupByPostLocationAndCount() {
-    return this.http.get<NumOfPosts[]>('http://localhost:3000/api/posts/postsGroupByPostLocation');
+    return this.http.get<NumOfPosts[]>('/api/posts/postsGroupByPostLocation');
   }
 
   searchPost(postTitle: string, postId: string, postLocation: string, forumName: string) {
@@ -165,7 +165,7 @@ export class PostsService {
       }
     }
 
-    return this.http.post<Post[]>('http://localhost:3000/api/posts/postsSearch', query);
+    return this.http.post<Post[]>('/api/posts/postsSearch', query);
   }
 }
 

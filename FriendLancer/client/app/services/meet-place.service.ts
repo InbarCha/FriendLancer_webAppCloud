@@ -14,7 +14,7 @@ export class MeetPlaceService {
   constructor(private http: HttpClient) { }
 
   createMeetPlace(meetPlaceName: string, meetPlaceType: string, meetPlaceLocation: string) {
-    return this.http.post('http://localhost:3000/api/meetPlaces', {
+    return this.http.post('/api/meetPlaces', {
       meetPlaceName: meetPlaceName,
       meetPlaceType: meetPlaceType,
       meetPlaceLocation: meetPlaceLocation,
@@ -22,7 +22,7 @@ export class MeetPlaceService {
   }
 
   editMeetPlace(meetPlaceName: string, meetPlaceType: string, meetPlaceLocation: string) {
-    return this.http.post('http://localhost:3000/api/meetPlaces/' + meetPlaceName, {
+    return this.http.post('/api/meetPlaces/' + meetPlaceName, {
       meetPlaceName: meetPlaceName,
       meetPlaceType: meetPlaceType,
       meetPlaceLocation: meetPlaceLocation,
@@ -30,11 +30,11 @@ export class MeetPlaceService {
   }
 
   getAllMeetPlaces() {
-    return this.http.get<MeetPlace[]>('http://localhost:3000/api/meetPlaces');
+    return this.http.get<MeetPlace[]>('/api/meetPlaces');
   }
 
   getMeetPlaceByName(meetPlaceName: string) {
-    return this.http.get<MeetPlace>('http://localhost:3000/api/meetPlaces/' + meetPlaceName);
+    return this.http.get<MeetPlace>('/api/meetPlaces/' + meetPlaceName);
   }
 
   setActiveMeetPlace(meetPlace: MeetPlace) {
@@ -92,6 +92,6 @@ export class MeetPlaceService {
       }
     }
 
-    return this.http.post<MeetPlace[]>('http://localhost:3000/api/meetPlaces/searchMeetPlace', query);
+    return this.http.post<MeetPlace[]>('/api/meetPlaces/searchMeetPlace', query);
   }
 }

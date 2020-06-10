@@ -15,7 +15,7 @@ export class ForumService {
   constructor(private http: HttpClient) {
   }
   createForum(forumName: string) {
-    return this.http.post('http://localhost:3000/api/forums', {
+    return this.http.post('/api/forums', {
       forumName: forumName,
       forumId: this.generateId(),
       numTimesWatched: 0,
@@ -23,25 +23,25 @@ export class ForumService {
   }
 
   editForum(forumName:string, forumId:string) {
-    return this.http.post('http://localhost:3000/api/forums/' + forumId, {
+    return this.http.post('/api/forums/' + forumId, {
       forumId: forumId,
       forumName: forumName,
     });
   }
 
   incNumTimesWatched(forumId:string, forumName: string) {
-    return this.http.post('http://localhost:3000/api/forums/incNumTimesWatched', {
+    return this.http.post('/api/forums/incNumTimesWatched', {
       forumId: forumId,
       forumName: forumName
     });
   }
 
   getAllForums() {
-    return this.http.get<Forum[]>('http://localhost:3000/api/forums');
+    return this.http.get<Forum[]>('/api/forums');
   }
 
   getForumById(forumId: string) {
-    return this.http.get<Forum>('http://localhost:3000/api/forums/' + forumId)
+    return this.http.get<Forum>('/api/forums/' + forumId)
   }
 
   generateId() {

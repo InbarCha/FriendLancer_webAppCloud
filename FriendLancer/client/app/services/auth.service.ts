@@ -31,7 +31,7 @@ export class AuthService {
   }
 
   deleteUser(userEmail: string, password: string) {
-    this.http.post('http://localhost:3000/api/users/deleteUser', {
+    this.http.post('/api/users/deleteUser', {
       email: userEmail,
       password: password
     });
@@ -76,7 +76,7 @@ export class AuthService {
   }
 
   getAllUsers() {
-    return this.http.get<Users[]>('http://localhost:3000/api/users');
+    return this.http.get<Users[]>('/api/users');
   }
 
   isUserAdmin() {
